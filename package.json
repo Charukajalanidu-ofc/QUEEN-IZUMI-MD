@@ -5,7 +5,6 @@
 "start":"pm2 start index.js --deep-monitoring --attach --name QUEEN-IZUMI-MD",
     "stop":"pm2 stop QUEEN-IZUMI-MD",
     "restart":"pm2 restart QUEEN-IZUMI-MD"},
-"stash": "git stash && git stash drop"
 },
 "dependencies": {
 "@adiwajshing/baileys": "git+https://github.com/prabathLK/PRABATH-MD-BAILEYS",
