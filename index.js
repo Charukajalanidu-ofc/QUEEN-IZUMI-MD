@@ -47,10 +47,11 @@ console.log("Connecting MIZUMI-MD 🧬...");
 const conn = makeWASocket({
         logger: P({ level: 'silent' }),
         printQRInTerminal: false,
-        browser: Browsers.macOS("Firefox"),
-        syncFullHistory: true,
-        auth: state,
-        version
+  generateHighQualityLinkPreview: true,
+    auth: state,
+    defaultQueryTimeoutMs: undefined,
+    msgRetryCounterCache
+        
         })
     
 conn.ev.on('connection.update', (update) => {
