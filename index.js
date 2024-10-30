@@ -43,7 +43,6 @@ const port = process.env.PORT || 8000;
 //==================================================
 
 console.log("Connecting MIZUMI-MD 🧬...");
-var { version } = await fetchLatestBaileysVersion()
 
 const conn = makeWASocket({
         logger: P({ level: 'silent' }),
