@@ -40,10 +40,6 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
 //================================/
-async function connectToWA() {
-const {readEnv} = require('./lib/database')
-const config = await readEnv();
-const prefix = config.PREFIX
 //==================================================
 
 console.log("Connecting MIZUMI-MD 🧬...");
