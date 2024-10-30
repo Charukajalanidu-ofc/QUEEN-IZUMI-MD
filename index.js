@@ -25,55 +25,60 @@ const ownerNumber = ['94775228949']
 const l = console.log
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get,updb,updfb } = require("./lib/database")
 
-//===================SESSION============================
-if (!fs.existsSync(__dirname + '/session/creds.json')) {
-  if (config.SESSION_ID) {
-  const sessdata = config.SESSION_ID.replace("IZUMI=","")
-  const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
-  filer.download((err, data) => {
-    if (err) throw err
-    fs.writeFile(__dirname + '/session/creds.json', data, () => {
-console.log("Session download completed !!")
-    })
-  })
-}}
-// <<==========PORTS===========>>
+//===================SESSION-AUTH============================
+if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
+if(!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
+const sessdata = config.SESSION_ID
+const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
+filer.download((err, data) => {
+if(err) throw err
+fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
+console.log("Session downloaded ✅")
+})})}
+
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
-//====================================
+//================================/
 async function connectToWA() {
-  const { version, isLatest } = await fetchLatestBaileysVersion()
-  console.log(`using WA v${version.join('.')}, isLatest: ${isLatest}`)
-  const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/session/')
-  const conn = makeWASocket({
-    logger: P({ level: "fatal" }).child({ level: "fatal" }),
-    printQRInTerminal: true,
-    generateHighQualityLinkPreview: true,
-    auth: state,
-    defaultQueryTimeoutMs: undefined,
-    msgRetryCounterCache 
-  })
-  
-  conn.ev.on('connection.update',async(update) => {
-    const { connection, lastDisconnect } = update
-    if (connection === 'close') {
-if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
-  connectToWA()
-}
-    } else if (connection === 'open') {
+//==================MONGODB===========================
+const connectDB = require('./lib/mongodb')
+connectDB();
+//==============================================
+const {readEnv} = require('./lib/database')
+const config = await readEnv();
+const prefix = config.PREFIX
+//==================================================
 
-console.log('Installing plugins 🔌... ')
+console.log("Connecting MIZUMI-MD 🧬...");
+const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
+var { version } = await fetchLatestBaileysVersion()
+
+const conn = makeWASocket({
+        logger: P({ level: 'silent' }),
+        printQRInTerminal: false,
+        browser: Browsers.macOS("Firefox"),
+        syncFullHistory: true,
+        auth: state,
+        version
+        })
+    
+conn.ev.on('connection.update', (update) => {
+const { connection, lastDisconnect } = update
+if (connection === 'close') {
+if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
+connectToWA()
+}
+} else if (connection === 'open') {
+console.log('🧚 Installing... ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
-  if (path.extname(plugin).toLowerCase() == ".js") {
-    require("./plugins/" + plugin);
-  }
+if (path.extname(plugin).toLowerCase() == ".js") {
+require("./plugins/" + plugin);
+}
 });
-console.log('Plugins installed ✅')
-await connectdb()
-await updb()
-console.log('QUEEN-IZUMI-MD connected ✅')
+console.log('Plugins installed successful ✅')
+console.log('Bot connected to whatsapp ✅')
     }
   })
 
