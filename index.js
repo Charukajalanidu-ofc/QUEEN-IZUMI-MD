@@ -40,6 +40,9 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
 //================================/
+const {readEnv} = require('./lib/data')
+const config = await readEnv();
+const prefix = config.PREFIX
 //==================================================
 
 console.log("Connecting MIZUMI-MD 🧬...");
