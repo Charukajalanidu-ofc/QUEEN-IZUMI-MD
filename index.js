@@ -631,7 +631,7 @@ const isError = String(e)
 console.log(isError)
     }
   })
-}
+
 app.get("/", (req, res) => {
   res.send("📟 Vajira Working successfully!");
 });
