@@ -22,7 +22,7 @@ const { File } = require('megajs')
 const path = require('path')
 const msgRetryCounterCache = new NodeCache()
 const prefix = '.'
-const ownerNumber = ['94766943622']
+const ownerNumber = ['94775228949']
 const l = console.log
 var { updateCMDStore,isbtnID,getCMDStore,getCmdForCmdId,connectdb,input,get,updb,updfb } = require("./lib/database")
 
@@ -75,6 +75,10 @@ console.log('Plugins installed ✅')
 await connectdb()
 await updb()
 console.log('QUEEN-IZUMI-MD connected ✅')
+
+      let up = `*✅MIZUMI-MD connected successful ✅*\n\n*PREFIX:* ${prefix} `;
+
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/397000a07a1deb7fad9c2.jpg` }, caption: up })
     }
   })
 
