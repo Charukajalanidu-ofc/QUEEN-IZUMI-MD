@@ -153,7 +153,7 @@ contextInfo: {
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterName: "MIZUKI MD",
-      newsletterJid: '120363376466846343@newslette',
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
@@ -191,7 +191,7 @@ const textmsg = await conn.sendMessage(from, { text: buttonMessage ,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterName: "MIZUKI MD",
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
