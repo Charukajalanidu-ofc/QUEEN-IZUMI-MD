@@ -49,8 +49,8 @@ async function connectToWA() {
   const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
   const conn = makeWASocket({
     logger: P({ level: "fatal" }).child({ level: "fatal" }),
-    printQRInTerminal: true,
-    generateHighQualityLinkPreview: true,
+    printQRInTerminal: false,
+    generateHighQualityLinkPreview: false,
     auth: state,
     defaultQueryTimeoutMs: undefined,
     msgRetryCounterCache 
