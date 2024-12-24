@@ -152,7 +152,8 @@ contextInfo: {
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterName: "MIZUKI MD",
+      newsletterJid: '120363376466846343@newslette',
       serverMessageId: 127
     },
 externalAdReply: { 
@@ -189,6 +190,7 @@ const textmsg = await conn.sendMessage(from, { text: buttonMessage ,
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
+      newsletterName: "MIZUKI MD",
       newsletterJid: '120363182681793169@newsletter',
       serverMessageId: 127
     },
@@ -212,7 +214,8 @@ contextInfo: {
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterName: "MIZUKI MD",
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
@@ -287,7 +290,8 @@ const textmsg = await conn.sendMessage(from, { text: buttonMessage ,contextInfo:
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterName: "MIZUKI MD",
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
@@ -309,7 +313,8 @@ const imgmsg = await conn.sendMessage(jid, { image: msgData.image, caption: butt
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterName: "MIZUKI MD",
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
@@ -358,7 +363,8 @@ contextInfo: {
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterName: "MIZUKI MD",
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
@@ -405,7 +411,8 @@ contextInfo: {
     forwardingScore: 1,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363182681793169@newsletter',
+      newsletterName: "MIZUKI MD",
+      newsletterJid: '120363376466846343@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
